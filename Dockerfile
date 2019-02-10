@@ -9,7 +9,7 @@ COPY opendmarc.conf /etc/opendmarc/opendmarc.conf
 # build opendmarc
 RUN apk add --update --no-cache --virtual .build-deps\
       curl tar gzip libspf2-dev libmilter-dev build-base gcc abuild binutils cmake &&\
-    apk add --no-cache libspf2 libbsd libidn libmilter &&\
+    apk add --no-cache libspf2 libbsd libidn libmilter openssl &&\
     curl -sSLO https://downloads.sourceforge.net/project/opendmarc/opendmarc-${OPENDMARC_VERSION}.tar.gz &&\
     tar -xf opendmarc-${OPENDMARC_VERSION}.tar.gz && rm opendmarc-${OPENDMARC_VERSION}.tar.gz &&\
     cd opendmarc-${OPENDMARC_VERSION} &&\
